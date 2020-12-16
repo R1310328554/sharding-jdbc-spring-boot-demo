@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.rockyang.shardingjdbc.common.mapper.UserMapper">
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="userId" parameterType="org.rockyang.shardingjdbc.common.model.User">
+        INSERT INTO t_user (username, password ) VALUES (#{username},#{password})
+    </insert>
+	
+	<select id="selectAll" resultType="org.rockyang.shardingjdbc.common.model.User">
+        select
+            t.user_id as userId,
+            t.username as username,
+            t.password as password
+        from t_user t
+	</select>
+
+	<select id="select" resultType="org.rockyang.shardingjdbc.common.model.User">
+        select
+            t.user_id as userId,
+            t.username as username,
+            t.password as password
+        from t_user t
+        where t.username = #{username}
+	</select>
+</mapper>
