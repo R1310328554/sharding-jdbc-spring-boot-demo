@@ -41,11 +41,11 @@ public class MasterSlaveController {
 
 	/**
 	 *
-	 http://localhost:8080/user/select
+	 http://localhost:8080/user/selectAll
 
 	 * @return
 	 */
-	@GetMapping("/selectAll")
+	@GetMapping("/selectAllselectAllselectAll")
 	public List<User> selectAll()
 	{
 		return userService.selectAll();
@@ -57,9 +57,9 @@ public class MasterSlaveController {
 
 	 * @return
 	 */
-	@GetMapping("/select")
-	public List<User> select()
+	@GetMapping("/select/{username}")
+	public List<User> select(@PathVariable String username)
 	{
-		return userService.selectAll();
+		return userService.select(username);
 	}
 }
